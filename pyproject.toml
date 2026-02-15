@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "trade-sync"
+version = "1.0.0"
+description = "Currency trading simulation and portfolio management"
+authors = ["Mikhail Tikhonov <th.mike.it@gmail.com>"]
+readme = "README.md"
+packages = [{include = "trade_sync", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+prettytable = "^3.10.0"
+requests = "^2.31.0" 
+python-dotenv = "^1.0.0"
+
+[tool.poetry.scripts]
+app = "trade_sync.main:main"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.0"
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 145
+target-version = "py310"
+exclude = ["venv", ".venv", "dist", "pycache"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.trade_sync]
+rates_ttl_seconds = 600
+default_base_currency = "USD"
+data_directory = "data"
