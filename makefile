@@ -16,8 +16,11 @@ package-install:
 lint:
 	poetry run ruff check .
 
+fix:
+	poetry run ruff check --fix .
+
 test:
 	poetry run pytest
 
 clean:
-	rm -rf .venv __pycache__ .pytest_cache
+	rm -rf .venv __pycache__ .pytest_cache dist
